@@ -1,9 +1,75 @@
+/* FONT FACE */
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/PublicSans-Bold.woff2") format("woff2"),
+    url("PublicSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/PublicSans-BoldItalic.woff2") format("woff2"),
+    url("PublicSans-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/PublicSans-Medium.woff2") format("woff2"),
+    url("PublicSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/PublicSans-Regular.woff2") format("woff2"),
+    url("PublicSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ibarra Real Nova";
+  src: url("../fonts/IbarraRealNova-Regular.woff2") format("woff2"),
+    url("IbarraRealNova-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ibarra Real Nova";
+  src: url("../fonts/IbarraRealNova-Bold.woff2") format("woff2"),
+    url("IbarraRealNova-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/PublicSans-Thin.woff2") format("woff2"),
+    url("PublicSans-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* CUSTOM PROPS */
 :root {
-  --green: #5FB4A2;
-  --dark-blue: #203A4C;
-  --grey-blue: #FAFAFA;
-  --grey: #EAEAEB;
+  --green: #5fb4a2;
+  --dark-blue: #203a4c;
+  --grey-blue: #33323d;
+  --light-grey: #fafafa;
+  --grey: #eaeaeb;
   --red: #f43030;
 
   --accent-font-family: 'Ibarra Real Nova', 'Times New Roman', serif;
@@ -46,7 +112,7 @@ body {
 /* CONTAINER */
 .container {
   width: 100%;
-  max-width: 1164px;
+  max-width: 1180px;
   padding-left: 32px;
   padding-right: 32px;
   margin-right: auto;
@@ -76,24 +142,19 @@ img {
   height: auto;
 }
 
-/* SITE-HEADER */
-.site-header {
-  padding-top: 32px;
-  padding-bottom: 40px;
-}
-
-.site-header__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-.site-header__logo {
-}
 
 /* LOGO */
 .logo {
+  display: block;
+  text-decoration: none;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo:active {
+  opacity: 0.6;
 }
 
 .logo__img {
@@ -102,17 +163,143 @@ img {
   height: 32px;
 }
 
-.site-logo-img {
+
+/* SITENAV */
+.sitenav__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-.site-header__sitenav {
+
+.sitenav__item:not(:last-child) {
+  margin-bottom: 32px;
 }
-.sitenav {
-}
-.sitenav-list {
-}
-.sitenav__item {
-}
+
 .sitenav__link {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
 }
+
+.sitenav__item--active .sitenav__link {
+  color: var(--green);
+}
+
+.sitenav__link:hover {
+  opacity: 0.8;
+}
+
+.sitenav__link:active {
+  opacity: 0.6;
+}
+
+
+/* SITE-HEADER */
+.site-header {
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+.site-header__container {
+  display: flex;
+  align-items: center;
+}
+
+
+.site-header__logo {
+  margin-right: auto;
+}
+
+.site-header__sitenav {
+  display: none;
+}
+
+.site-header--open .site-header__sitenav {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  right: 32px;
+  top: 88px;
+  min-width: 223px;
+  max-width: calc(100% - 64px);
+  padding: 40px;
+  background-color: var(--grey-blue);
+}
+
 .site-header__toggler {
+  display: block;
+  width: 24px;
+  height: 19px;
+  border: 0;
+  background-color: transparent;
+  background-image: url("../IMG/hamburger-menu-open.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.site-header--open .site-header__toggler {
+  background-image: url("../IMG/close.svg");
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+}
+
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+
+  .site-header {
+    padding-top: 64px;
+    padding-bottom: 47px;
+  }
+
+
+  .site-header__sitenav,
+  .site-header--open .site-header__toggler {
+    position: static;
+    display: block;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .site-header__toggler {
+    display: none;
+  }
+
+  .sitenav--site-header .sitenav__list {
+    display: flex;
+  }
+
+  .sitenav--site-header  .sitenav__item:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 42px;
+  }
+
+  .sitenav--site-header .sitenav__link {
+    color: var(--grey-blue);
+  }
+
+}
+
+
+@media only screen and (min-width: 1180px) {
+  .site-header {
+    padding-bottom: 54px;
+  }
 }
