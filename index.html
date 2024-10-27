@@ -22,7 +22,7 @@
 
 
         <!-- SITENAV -->
-        <nav class="site-header__sitenav sitenav sitenav--site-header">
+        <nav class="site-header__sitenav sitenav sitenav--site-header site-header--open">
           <ul class="sitenav__list">
             <li class="sitenav__item sitenav__item--active"><a class="sitenav__link" href="#">Home</a></li>
             <li class="sitenav__item"><a class="sitenav__link" href="#">Portfolio</a></li>
@@ -37,21 +37,41 @@
 
     <!-- MAIN-CONTENT -->
     <main class="main-content">
-      <div class="container">
-        <a class="cta-button"  disabled type="button">
-          <span class="cta-button__inner">
-            <span class="cta-button__append">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" fill="none"><path stroke="currentColor" d="m1 9 8 4 8-4"/><path stroke="currentColor" d="m1 5 8 4 8-4" opacity=".5"/><path stroke="currentColor" d="m1 1 8 4 8-4" opacity=".25"/></svg>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero__container container">
+        <picture class="hero__picture">
+          <source srcset="IMG/hero-img-desktop.jpg 1x, IMG/hero-img-desktop@2x.jpg" media="(min-width:1024px)">
+          <source srcset="IMG/hero-img-tablet.jpg 1x, IMG/hero-img-tablet@2x.jpg" media="(min-width:500px)">
+          <img class="hero__img" src="IMG/hero-img.jpg" alt="" width="311" height="271" srcset="IMG/hero-img.jpg 1x, IMG/hero-img@2x.jpg">
+        </picture>
+
+        <div class="hero__text-wrapper">
+          <h1 class="hero-heading">Hey, I’m Alex Spencer and I love building beautiful websites</h1>
+
+          <a class="cta-button"  disabled type="button">
+            <span class="cta-button__inner">
+              <span class="cta-button__append">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" fill="none"><path stroke="currentColor" d="m1 9 8 4 8-4"/><path stroke="currentColor" d="m1 5 8 4 8-4" opacity=".5"/><path stroke="currentColor" d="m1 1 8 4 8-4" opacity=".25"/></svg>
+              </span>
+              <span class="cta-button__text">About me</span>
             </span>
-            <span class="cta-button__text">About me</span>
-          </span>
-        </a>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+
+      <!-- <div class="container">
+
 
         <hr>
 
         <a class="button" href="#">Go to portfolio</a>
         <button  class="button" type="button">View projects</button>
-      </div>
+      </div> -->
     </main>
 
 
